@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1882d59c39c03304e8335d6c76b4c5ea, type: 3}
+  m_Name: UIAutoCreateInfoConfig
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::UIAutoCreateInfoConfig
+  uiInfoList:
+  - prefixName: Btn_
+    typeName: Button
+  - prefixName: Tran_
+    typeName: Transform
+  - prefixName: Img_
+    typeName: Image
+  - prefixName: Txt_
+    typeName: TextMeshProUGUI
+  - prefixName: Input_
+    typeName: TMP_InputField
+  - prefixName: Ins_
+    typeName: Transform
+  - prefixName: Grid_
+    typeName: LoopGridView
+  - prefixName: LBtn_
+    typeName: ButtonLongPress
+  - prefixName: Slider_
+    typeName: Slider
+  - prefixName: ToggleG_
+    typeName: ToggleGroup
+  - prefixName: Toggle_
+    typeName: Toggle
+  - prefixName: List2_
+    typeName: LoopListView2
+  - prefixName: Go
+    typeName: GameObject
+  - prefixName: RT
+    typeName: RectTransform
+  - prefixName: XBtn_
+    typeName: XButton
+  UIWindowTemplatePath: Assets/GameScripts/Editor/UICreator/UITemplateCode/UIWindowClassTemplate.txt
+  UIControlTemplatePath: Assets/GameScripts/Editor/UICreator/UITemplateCode/UIControlClassTemplate.txt
+  UIComponentTemplatePath: Assets/GameScripts/Editor/UICreator/UITemplateCode/UIComponentViewTemplate.txt
+  UIComponentClassTemplatePath: Assets/GameScripts/Editor/UICreator/UITemplateCode/UIComponentClassTemplate.txt
+  WindowScriptPath: Assets/GameScripts/Runtime/UI/Window
+  ComponentScriptPath: Assets/GameScripts/Runtime/UI/Component
+  WindowPrefabPath: Assets/GameRes/Prefabs/Windows
+  ComponentPrefabPath: Assets/GameRes/Prefabs/Components
