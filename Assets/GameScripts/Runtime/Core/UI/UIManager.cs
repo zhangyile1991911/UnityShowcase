@@ -3,8 +3,6 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using YooAsset;
-using Object = UnityEngine.Object;
 
 
 public class UIManager : SingletonModule<UIManager>
@@ -137,17 +135,17 @@ public class UIManager : SingletonModule<UIManager>
             .Where(one => one is UIAttribute)
             .Select(tmp=> (tmp as UIAttribute).ResPath).FirstOrDefault();
         
-        var handle = YooAssets.LoadAssetAsync<GameObject>(uiPath);
-        await handle.ToUniTask(_uiDriver);
+        // var handle = YooAssets.LoadAssetAsync<GameObject>(uiPath);
+        // await handle.ToUniTask(_uiDriver);
         
-        var uiPrefab = handle.AssetObject;
+        // var uiPrefab = handle.AssetObject;
         var parentNode = getParentNode(layer);
-        var uiGameObject = GameObject.Instantiate(uiPrefab,parentNode) as GameObject;
-        uiGameObject.transform.localScale = Vector3.one;
-        uiGameObject.transform.SetParent(parentNode,false);
+        // var uiGameObject = GameObject.Instantiate(uiPrefab,parentNode) as GameObject;
+        // uiGameObject.transform.localScale = Vector3.one;
+        // uiGameObject.transform.SetParent(parentNode,false);
         IUIBase ui = Activator.CreateInstance(uiType) as IUIBase;
         ui.uiLayer = layer;
-        ui.Init(uiGameObject);
+        // ui.Init(uiGameObject);
         onComplete?.Invoke(ui);
         _uiCachedDic.Add(uiName,ui,isPermanent);
     }
@@ -169,26 +167,27 @@ public class UIManager : SingletonModule<UIManager>
             .Where(one => one is UIAttribute)
             .Select(tmp=> (tmp as UIAttribute).ResPath).FirstOrDefault();
         
-        var handle = YooAssets.LoadAssetAsync<GameObject>(uiPath);
-        await handle.ToUniTask(_uiDriver);
+        // var handle = YooAssets.LoadAssetAsync<GameObject>(uiPath);
+        // await handle.ToUniTask(_uiDriver);
         
-        var uiPrefab = handle.AssetObject;
+        // var uiPrefab = handle.AssetObject;
         
-        var uiGameObject = Object.Instantiate(uiPrefab,node) as GameObject;
-        uiGameObject.transform.localPosition = Vector3.zero;
-        uiGameObject.transform.localScale = Vector3.one;
-        T uiComponent = Activator.CreateInstance(componentType,new object[]{uiGameObject,parent}) as T;
+        // var uiGameObject = Object.Instantiate(uiPrefab,node) as GameObject;
+        // uiGameObject.transform.localPosition = Vector3.zero;
+        // uiGameObject.transform.localScale = Vector3.one;
+        // T uiComponent = Activator.CreateInstance(componentType,new object[]{uiGameObject,parent}) as T;
         // uiComponent.OnCreate();
         if (show)
         {
-            uiComponent.OnShow(openParam);    
+            // uiComponent.OnShow(openParam);    
         }
         else
         {
-            uiComponent.OnHide();
+            // uiComponent.OnHide();
         }
         
-        return uiComponent;
+        // return uiComponent;
+        return null;
     }
 
     public async UniTask<T> CreateTip<T>(UIOpenParam openParam)where T : UIComponent

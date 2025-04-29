@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ad72bccd22ce1cd4bab9650e40b71aa7
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176735
+  packageName: 'ShaderGraph Extensions: Debug Value'
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/ShaderGraphExtensions/DebugValue/ShaderGraphExtension_DebugValue_ChangeLog.txt
+  uploadId: 461060

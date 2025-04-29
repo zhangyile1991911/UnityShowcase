@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0347f93f600b8944389c752492ce57a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176735
+  packageName: 'ShaderGraph Extensions: Debug Value'
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/ShaderGraphExtensions/DebugValue/Scripts/DebugValueShaderUtils.cs
+  uploadId: 461060

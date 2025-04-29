@@ -1,0 +1,7 @@
+﻿Change Log:
+
+1.0.0	-	Initial version: Debug Value as a custom node.
+
+1.0.1	-	Added 2020.2 version support.
+
+1.0.2   -   Added 2021.2 version support.

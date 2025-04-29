@@ -5,7 +5,6 @@ using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using YooAsset;
 
 public class UIWindow : IUIBase
 {
@@ -29,7 +28,7 @@ public class UIWindow : IUIBase
     public bool IsActive => uiGo.active;
 
     private List<UIComponent> _childComponent = new List<UIComponent>(10);
-    private List<AssetOperationHandle> _resHandles = new List<AssetOperationHandle>(10);
+    // private List<AssetOperationHandle> _resHandles = new List<AssetOperationHandle>(10);
     protected CompositeDisposable handles = null;
     private UILayer _uiLayer;
     public virtual void Init(GameObject go)
@@ -44,11 +43,11 @@ public class UIWindow : IUIBase
 
     public virtual void OnDestroy()
     {
-        foreach (var h in _resHandles)
-        {
-            h.Release();
-            h.Dispose();
-        }
+        // foreach (var h in _resHandles)
+        // {
+        //     h.Release();
+        //     h.Dispose();
+        // }
         //todo 清理子widget
         GameObject.Destroy(uiGo);
     }
@@ -97,46 +96,47 @@ public class UIWindow : IUIBase
 
     public async void LoadAssetAsync<T>(string resPath,Action<T> complete)where T : UnityEngine.Object
     {
-        var handler = YooAssets.LoadAssetAsync<T>(resPath);
-        _resHandles.Add(handler);
-        await handler.ToUniTask();
-        complete?.Invoke(handler.AssetObject as T);
+        // var handler = YooAssets.LoadAssetAsync<T>(resPath);
+        // _resHandles.Add(handler);
+        // await handler.ToUniTask();
+        // complete?.Invoke(handler.AssetObject as T);
     }
     
     public async UniTask LoadSpriteAsync(string resPath,Action<Sprite> complete)
     {
-        var handler = YooAssets.LoadAssetAsync<Sprite>(resPath);
-        _resHandles.Add(handler);
-        await handler.ToUniTask();
-        complete?.Invoke(handler.AssetObject as Sprite);
+        // var handler = YooAssets.LoadAssetAsync<Sprite>(resPath);
+        // _resHandles.Add(handler);
+        // await handler.ToUniTask();
+        // complete?.Invoke(handler.AssetObject as Sprite);
     }
 
     public void LoadSpriteAsync(string resPath, Image image)
     {
-        var handler = YooAssets.LoadAssetAsync<Sprite>(resPath);
-        _resHandles.Add(handler);
-        handler.Completed += handle =>
-        {
-            image.sprite = handle.AssetObject as Sprite;
-        };
+        // var handler = YooAssets.LoadAssetAsync<Sprite>(resPath);
+        // _resHandles.Add(handler);
+        // handler.Completed += handle =>
+        // {
+        //     image.sprite = handle.AssetObject as Sprite;
+        // };
     }
 
     public async UniTask<GameObject> LoadPrefabAsync(string prefabPath)
     {
-        var handler = YooAssets.LoadAssetAsync<GameObject>(prefabPath);
-        _resHandles.Add(handler);
-        
-        await handler.ToUniTask();
-        return (GameObject)handler.AssetObject;
+        // var handler = YooAssets.LoadAssetAsync<GameObject>(prefabPath);
+        // _resHandles.Add(handler);
+        //
+        // await handler.ToUniTask();
+        // return (GameObject)handler.AssetObject;
+        return null;
     }
 
     public void LoadPrefabAsync(string prefabPath,Action<GameObject> complete)
     {
-        var handler = YooAssets.LoadAssetAsync<GameObject>(prefabPath);
-        _resHandles.Add(handler);
-        handler.Completed += param =>
-        {
-            complete?.Invoke(param.AssetObject as GameObject);
-        };
+        // var handler = YooAssets.LoadAssetAsync<GameObject>(prefabPath);
+        // _resHandles.Add(handler);
+        // handler.Completed += param =>
+        // {
+        //     complete?.Invoke(param.AssetObject as GameObject);
+        // };
     }
 }

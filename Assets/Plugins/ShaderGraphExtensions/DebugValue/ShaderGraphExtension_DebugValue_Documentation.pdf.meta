@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4cd04f978c86edf40a078a1c8d08f067
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 176735
+  packageName: 'ShaderGraph Extensions: Debug Value'
+  packageVersion: 1.0.2
+  assetPath: Assets/Plugins/ShaderGraphExtensions/DebugValue/ShaderGraphExtension_DebugValue_Documentation.pdf
+  uploadId: 461060
