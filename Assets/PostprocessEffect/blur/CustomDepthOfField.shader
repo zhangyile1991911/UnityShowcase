@@ -1,4 +1,4 @@
-Shader "Hidden/CustomDepthOfField"
+Shader "Hidden/Custom/CustomDepthOfField"
 {
     HLSLINCLUDE
 
@@ -14,8 +14,11 @@ Shader "Hidden/CustomDepthOfField"
         TEXTURE2D_X(_NearBlurTexture);
         TEXTURE2D_X(_FarBlurTexture);
         
+        float _nearBlurFactor;
+        float _farBlurFactor;
         float2 _AreaFieldParams;
         float4 _SourceSize;
+        float _MaxFarDistance;
         #define NearBlurEnd   _AreaFieldParams.x
         #define FarBlurStart   _AreaFieldParams.y
 
@@ -25,7 +28,7 @@ Shader "Hidden/CustomDepthOfField"
             UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
             float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
             //根据屏幕的宽高放大UV坐标
-            float depth = LOAD_TEXTURE2D_X(_CameraDepthTexture, _SourceSize.xy * uv).x;
+            float depth = SampleSceneDepth(uv);
             
             //最小值：等于相机的近裁剪面距离（如 Near=0.3，则最小返回 0.3）
 		    //最大值：等于相机的远裁剪面距离（如 Far=1000，则最大返回 1000）
@@ -36,14 +39,15 @@ Shader "Hidden/CustomDepthOfField"
             float r = 0;
             float g = 0;
             float b = 0;
-            if (depth < NearBlurEnd)
+            
+            if (depth+_ProjectionParams.y < NearBlurEnd)
             {
-                r = saturate((depth - _ProjectionParams.y) / (NearBlurEnd - _ProjectionParams.y));
+                r = saturate(depth / NearBlurEnd);
                 g = 1;
             }
-            else if (depth > FarBlurStart)
+            else if (depth >= FarBlurStart)
             {
-                r = saturate((depth - FarBlurStart) / (100 - FarBlurStart));
+                r = saturate((depth - FarBlurStart) / (_MaxFarDistance - FarBlurStart));
                 b = 1;
             }
             
@@ -52,12 +56,14 @@ Shader "Hidden/CustomDepthOfField"
 
         #include "Assets/lygia/filter/boxBlur.hlsl"
         #include "Assets/lygia/filter/noiseBlur.hlsl"
+        #include "Assets/lygia/filter/gaussianBlur.hlsl"
+        #include "Assets/lygia/filter/radialBlur.hlsl"
         
         half4 NearBlur(Varyings input) : SV_Target
         {
             UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
             float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
-            return noiseBlur(_BlitTexture,uv,_SourceSize.zw,20);
+            return noiseBlur(_BlitTexture,uv,_SourceSize.zw,_nearBlurFactor);
         }
 
         
@@ -65,9 +71,22 @@ Shader "Hidden/CustomDepthOfField"
         {
             UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
             float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
-            return boxBlur(_BlitTexture,uv,_SourceSize.zw,20);
+            // return gaussianBlur(_BlitTexture,uv,_SourceSize.zw,_farBlurFactor);
+            return boxBlur(_BlitTexture,uv,_SourceSize.zw,_farBlurFactor);
+            // return noiseBlur(_BlitTexture,uv,_SourceSize.zw,_farBlurFactor);
+            // float2 dir = uv - float2(.5f,0.85f);
+            // dir = normalize(dir);
+            // return radialBlur(_BlitTexture,uv,_SourceSize.zw*dir,_farBlurFactor);
         }
-        
+
+        half4 FragRadialBlur(Varyings input) : SV_Target
+        {
+            UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
+            float2 uv = UnityStereoTransformScreenSpaceTex(input.texcoord);
+            float2 dir = uv - float2(.5f,0.85f);
+            dir = normalize(dir);
+            return radialBlur(_BlitTexture,uv,_SourceSize.zw*dir,_farBlurFactor);
+        }
 
         half4 FragComposite(Varyings input) : SV_Target
         {
@@ -78,7 +97,7 @@ Shader "Hidden/CustomDepthOfField"
             half4 farColor = LOAD_TEXTURE2D_X(_FarBlurTexture, _SourceSize.xy * uv);
             half4 baseColor = LOAD_TEXTURE2D_X(_BlitTexture, _SourceSize.xy * uv);
             half4 sep = SAMPLE_TEXTURE2D_X(_SeparationTexture, sampler_LinearClamp,uv);
-
+            
             UNITY_BRANCH
             if (sep.g > 0.5)
             {
@@ -93,9 +112,16 @@ Shader "Hidden/CustomDepthOfField"
                 half blend = sqrt(sep.r * TWO_PI);
                 farColor = farColor * saturate(blend);
                 farColor.rgb = farColor.rgb + baseColor.rgb * saturate(1.0 - blend);
+                // farColor.rgb = farColor.rgb * sep.r + baseColor.rgb * saturate(1.0 - sep.r);
             }
-           
+            // return sep;
             //rgb
+            //只输出 没有被影响的部分
+            // return (1 - sep.g - sep.b) * baseColor;
+            //只输出 前景
+            // return sep.g * nearColor;
+            //只输出 后景
+            // return sep.b * farColor;
            return nearColor * sep.g + farColor * sep.b + (1 - sep.g - sep.b) * baseColor;
         }
 
@@ -145,6 +171,16 @@ Shader "Hidden/CustomDepthOfField"
             HLSLPROGRAM
                 #pragma vertex Vert
                 #pragma fragment FragComposite
+            ENDHLSL
+        }
+
+        Pass
+        {
+            Name "Depth Of Field Radial Blur"
+
+            HLSLPROGRAM
+                #pragma vertex Vert
+                #pragma fragment FragRadialBlur
             ENDHLSL
         }
     }
