@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 327397968414097979}
+  - {fileID: 1638577832900215361}
 --- !u!114 &327397968414097979
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -26,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cdd53eb46ad4725a172f28908119fe, type: 3}
   m_Name: CustomDepthOfFieldVolumeComponent
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 1
@@ -54,3 +55,40 @@ MonoBehaviour:
   maxFarDistance:
     m_OverrideState: 1
     m_Value: 15
+--- !u!114 &1638577832900215361
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a301f40fe61d44dc49c007cf03d24cd8, type: 3}
+  m_Name: PS_FogVolumeComponent
+  m_EditorClassIdentifier: 
+  active: 1
+  fogColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.3679245, g: 0.35230508, b: 0.35230508, a: 1}
+  FogDensity:
+    m_OverrideState: 1
+    m_Value: 8.17
+  FogStart:
+    m_OverrideState: 1
+    m_Value: 0
+  FogEnd:
+    m_OverrideState: 1
+    m_Value: 40
+  FogHeight:
+    m_OverrideState: 1
+    m_Value: 30.4
+  FogFalloff:
+    m_OverrideState: 1
+    m_Value: 0.83
+  NoiseVector:
+    m_OverrideState: 1
+    m_Value: {x: 0.12, y: 0.48, z: 0}
+  MaxFogBlendFactor:
+    m_OverrideState: 1
+    m_Value: 0.91
