@@ -15,23 +15,18 @@ MonoBehaviour:
   throttleType: 0
   throttleLimit: 0
   categoryList:
-  - id: 1
-    name: BGM
-    throttleType: 1
-    throttleLimit: 1
-    audioMixerGroup: {fileID: -3842388763348549802, guid: f6fb2888aa1504c5a9af3fb542ef8059, type: 2}
   - id: 2
     name: SE
     throttleType: 1
     throttleLimit: 0
     audioMixerGroup: {fileID: 6396821484743927584, guid: f6fb2888aa1504c5a9af3fb542ef8059, type: 2}
+  - id: 1
+    name: BGM
+    throttleType: 0
+    throttleLimit: 1
+    audioMixerGroup: {fileID: -3842388763348549802, guid: f6fb2888aa1504c5a9af3fb542ef8059, type: 2}
   - id: 3
     name: Voice
     throttleType: 0
     throttleLimit: 0
     audioMixerGroup: {fileID: -490207068482974517, guid: f6fb2888aa1504c5a9af3fb542ef8059, type: 2}
-  - id: 1493570340
-    name: Button
-    throttleType: 1
-    throttleLimit: 1
-    audioMixerGroup: {fileID: 24300002, guid: f6fb2888aa1504c5a9af3fb542ef8059, type: 2}

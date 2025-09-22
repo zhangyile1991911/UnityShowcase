@@ -27,16 +27,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cdd53eb46ad4725a172f28908119fe, type: 3}
   m_Name: CustomDepthOfFieldVolumeComponent
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   mode:
     m_OverrideState: 1
     m_Value: 1
   farBlurFactor:
     m_OverrideState: 1
-    m_Value: 18.7
+    m_Value: 20
   farClipDistance:
     m_OverrideState: 1
-    m_Value: 9.5
+    m_Value: 8.5
   farBlurMode:
     m_OverrideState: 1
     m_Value: 0
@@ -45,13 +45,13 @@ MonoBehaviour:
     m_Value: 0
   nearClipDistance:
     m_OverrideState: 1
-    m_Value: 3.21
+    m_Value: 1.28
   nearBlurFactor:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 18.9
   nearBlurMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   maxFarDistance:
     m_OverrideState: 1
     m_Value: 15
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a301f40fe61d44dc49c007cf03d24cd8, type: 3}
   m_Name: PS_FogVolumeComponent
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   fogColor:
     m_OverrideState: 1
     m_Value: {r: 0.3679245, g: 0.35230508, b: 0.35230508, a: 1}

@@ -141,7 +141,7 @@ public sealed class CustomDepthOfFieldRendererFeature : ScriptableRendererFeatur
             var curDesc = renderGraph.GetTextureDesc(resourcesData.cameraColor);
             curDesc.name = "_CameraColorCustomPostProcessing";
             curDesc.clearBuffer = false;
-            renderGraph.CreateTextureIfInvalid(curDesc,ref SeparationTexture);
+            SeparationTexture = renderGraph.CreateTexture(curDesc);
             m_Material.SetVector(_AreaFieldParams,new Vector2(customDepthOfFieldParam.nearClipDistance.value,customDepthOfFieldParam.farClipDistance.value));
             m_Material.SetVector(_SourceSize, new Vector4(curDesc.width, curDesc.height, 1f/curDesc.width, 1f/curDesc.height));
             var bmp1 = new RenderGraphUtils.BlitMaterialParameters(resourcesData.cameraColor, SeparationTexture,
@@ -149,7 +149,7 @@ public sealed class CustomDepthOfFieldRendererFeature : ScriptableRendererFeatur
             renderGraph.AddBlitPass(bmp1, "Depth Of Field Separate");
             
             //step2 近景模糊
-            renderGraph.CreateTextureIfInvalid(curDesc,ref nearBlurResult);
+            nearBlurResult = renderGraph.CreateTexture(curDesc);
             if (customDepthOfFieldParam.nearMode == CustomDepthOfFieldMode.On)
             {
                 var bmp2 = new RenderGraphUtils.BlitMaterialParameters(resourcesData.cameraColor, nearBlurResult,
@@ -158,7 +158,7 @@ public sealed class CustomDepthOfFieldRendererFeature : ScriptableRendererFeatur
             }
             
             //step3 远景模糊
-            renderGraph.CreateTextureIfInvalid(curDesc,ref farBlurResult);
+            farBlurResult = renderGraph.CreateTexture(curDesc);
             if (customDepthOfFieldParam.farBlurMode == FarBlurMode.BoxBlur)
             {
                 var bmp3 = new RenderGraphUtils.BlitMaterialParameters(resourcesData.cameraColor, farBlurResult,

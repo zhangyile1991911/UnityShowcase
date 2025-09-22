@@ -19,8 +19,6 @@ public class AudioMixerVolumeControlSample : MonoBehaviour
     public void SetVoiceVolume(float value)
         => SetVolume("VoiceVolume", value);
 
-    public void SetTestVolume(float value)
-        => SetVolume("TestVolume", value);
     private void SetVolume(string parameterName, float value)
     {
         // In the AudioMixer inspector, volumes need to be exposed to scripts

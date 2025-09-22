@@ -31,7 +31,7 @@ MonoBehaviour:
       volumeRange: 0
       pitch: 1
       pitchRange: 0
-      pitchInvert: 1
+      pitchInvert: 0
       playType: 0
       trackList:
       - id: 41d41bfc-204b-49cb-ad06-aa4b31e0eb5b
@@ -42,7 +42,7 @@ MonoBehaviour:
         volumeRange: 0
         pitch: 1
         pitchRange: 0
-        pitchInvert: 1
+        pitchInvert: 0
         startSample: 0
         endSample: 2981408
         loopStartSample: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
         volumeRange: 0
         pitch: 1
         pitchRange: 0
-        pitchInvert: 1
+        pitchInvert: 0
         startSample: 0
         endSample: 1788899
         loopStartSample: 1192619
@@ -70,10 +70,10 @@ MonoBehaviour:
       colorId: 
       name: SE
       categoryId: 2
-      throttleType: 0
+      throttleType: 1
       throttleLimit: 0
-      volume: 1
-      volumeRange: 0.575
+      volume: 0.8
+      volumeRange: 0.2
       pitch: 1
       pitchRange: 0
       pitchInvert: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
         colorId: 
         name: SE03
         audioClip: {fileID: 8300000, guid: 5f367dfb335014bd98f39b326180e6b4, type: 3}
-        volume: 0.37
+        volume: 1
         volumeRange: 0
         pitch: 1
         pitchRange: 0
@@ -167,67 +167,6 @@ MonoBehaviour:
         pitchInvert: 0
         startSample: 0
         endSample: 204829
-        loopStartSample: 0
-        isLoop: 0
-        randomWeight: 0
-        priority: 0
-        fadeTime: 0
-    - id: 2155df9b-33c1-40b0-9eaf-0d9dc375851f
-      colorId: bf7527ca-b7b9-4d0b-80da-785d8f595b5e
-      name: Test
-      categoryId: 556262282
-      throttleType: 1
-      throttleLimit: 0
-      volume: 1
-      volumeRange: 0
-      pitch: 1
-      pitchRange: 0
-      pitchInvert: 0
-      playType: 1
-      trackList:
-      - id: e13ea4a0-e479-47fc-9981-115ac2fbee3e
-        colorId: bf7527ca-b7b9-4d0b-80da-785d8f595b5e
-        name: t1
-        audioClip: {fileID: 8300000, guid: 2e70f07445c79449a80822dcb7aaacfb, type: 3}
-        volume: 1
-        volumeRange: 0
-        pitch: 1
-        pitchRange: 0
-        pitchInvert: 0
-        startSample: 0
-        endSample: 18151
-        loopStartSample: 0
-        isLoop: 0
-        randomWeight: 0
-        priority: 0
-        fadeTime: 0
-      - id: 763a0e2b-4494-4cd7-a6c3-d764636f1972
-        colorId: bf7527ca-b7b9-4d0b-80da-785d8f595b5e
-        name: t2
-        audioClip: {fileID: 8300000, guid: 032ed3a05bc6f49129f1c97e965574ea, type: 3}
-        volume: 1
-        volumeRange: 0
-        pitch: 1
-        pitchRange: 0
-        pitchInvert: 0
-        startSample: 0
-        endSample: 29913
-        loopStartSample: 0
-        isLoop: 0
-        randomWeight: 0
-        priority: 0
-        fadeTime: 0
-      - id: bd0d9934-4c00-4d51-a9a9-de1c08b17ac6
-        colorId: bf7527ca-b7b9-4d0b-80da-785d8f595b5e
-        name: t3
-        audioClip: {fileID: 8300000, guid: 5f367dfb335014bd98f39b326180e6b4, type: 3}
-        volume: 1
-        volumeRange: 0
-        pitch: 1
-        pitchRange: 0
-        pitchInvert: 0
-        startSample: 0
-        endSample: 74306
         loopStartSample: 0
         isLoop: 0
         randomWeight: 0

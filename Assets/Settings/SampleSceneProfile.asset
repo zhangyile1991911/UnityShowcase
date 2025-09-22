@@ -87,16 +87,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cdd53eb46ad4725a172f28908119fe, type: 3}
   m_Name: CustomDepthOfFieldVolumeComponent
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   mode:
+    m_OverrideState: 0
+    m_Value: 0
+  farBlurFactor:
+    m_OverrideState: 1
+    m_Value: 20
+  farClipDistance:
+    m_OverrideState: 0
+    m_Value: 5
+  farBlurMode:
+    m_OverrideState: 0
+    m_Value: 0
+  nearMode:
     m_OverrideState: 0
     m_Value: 0
   nearClipDistance:
     m_OverrideState: 0
     m_Value: 1
-  farClipDistance:
+  nearBlurFactor:
+    m_OverrideState: 1
+    m_Value: 20
+  nearBlurMode:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 2
+  maxFarDistance:
+    m_OverrideState: 1
+    m_Value: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,10 +13,10 @@ namespace AudioConductor.Sample
     public class SampleScene : MonoBehaviour
     {
         [SerializeField]
-        private AudioConductorSettings _setting;//将Category和Audio Mixer绑定的配置文件
+        private AudioConductorSettings _setting;
 
         [SerializeField]
-        private CueSheetAsset _sheetAsset;//资源文件
+        private CueSheetAsset _sheetAsset;
 
         [SerializeField]
         private Dropdown _cueNames;
@@ -53,9 +53,9 @@ namespace AudioConductor.Sample
         private void Awake()
         {
             AudioConductorInterface.Setup(_setting, OnCueSheetUnused);
-            //拿到所有cue信息
+
             var cueList = _sheetAsset.cueSheet.cueList;
-            //创建播放cue的controller
+
             _controllers = new ICueController[cueList.Count];
 
             _cueNames.options.AddRange(cueList.Select(cue => new Dropdown.OptionData(cue.name)));
@@ -82,7 +82,7 @@ namespace AudioConductor.Sample
         }
 
         private void SelectIndex(int index)
-        {//选择cue
+        {
             _currentIndex = index;
             var cue = _sheetAsset.cueSheet.cueList[index];
             _trackIds.options.Clear();
