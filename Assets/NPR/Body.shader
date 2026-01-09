@@ -49,12 +49,13 @@ Shader "ToonShader/Body"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
+            sampler2D _BaseMap;
+            sampler2D _LightMap;
+            //Ramp
+            sampler2D _RampTex;
             //常量缓冲区
             CBUFFER_START(UnityPerMaterial)
-                sampler2D _BaseMap;
-                sampler2D _LightMap;
-                //Ramp
-                sampler2D _RampTex;
+               
                 float _ShadowRampWidth;
                 float _ShadowPosition;
                 float _ShadowSoftness;

@@ -111,7 +111,7 @@ Shader "ToonShader/Face"
             {
                 Light mainLight = GetMainLight();
                 // float3 L = normalize(float3(0.3f,-.9f,0.3f));
-                //todo 没有获得真实的 平行光信息
+                
                 float3 L = normalize(mainLight.direction);
                 
                 float3 N = normalize(input.normalWS);

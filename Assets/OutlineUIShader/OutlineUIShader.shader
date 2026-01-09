@@ -8,7 +8,7 @@ Shader "Unlit/OutlineUI"
         [Enum(UnityEngine.Rendering.BlendMode)]_MyDstMode("My Dst Mode", Float) = 10
         
         // 主纹理 - UI元素的基础纹理
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Sprite Texture", 2D) = "white" {}
         
         // 噪点纹理 - 用于创建动态噪点效果
         _Noise("Noise", 2D) = "white" {}

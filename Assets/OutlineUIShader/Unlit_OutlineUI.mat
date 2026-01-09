@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Noise:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f1d51ed493a42ad4789ff2be401e8b43, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TintTexture:
@@ -44,7 +44,7 @@ Material:
     - _OutlineWidth: 0.05
     - _UseTintOutline: 0
     m_Colors:
-    - _NoiseIntensity: {r: 0, g: 0, b: 0, a: 0}
-    - _OutlineColor: {r: 0.8861064, g: 0.48387656, b: 0.06003654, a: 1}
+    - _NoiseIntensity: {r: -0.01, g: -0.01, b: 0.02, a: 0}
+    - _OutlineColor: {r: 0.8862745, g: 0.05882353, b: 0.14301263, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

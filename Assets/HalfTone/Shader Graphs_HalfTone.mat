@@ -54,11 +54,13 @@ Material:
     - _DotDensity: 12.55
     - _FirstEdge: 0.9
     - _Offset: -1
+    - _OutlineThinckness: 0.795
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ShadowThreshold: 1.1
     m_Colors:
     - _BaseColor: {r: 0.40583837, g: 0.7220307, b: 0.9056604, a: 0}
     - _DotColor: {r: 0.2309541, g: 0.2830189, b: 0.25421992, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
